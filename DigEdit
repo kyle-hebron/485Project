@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class DigEdit {
+
+    public static void main(String[] args) {
+        graph();
+    }
+
+    public static void graph() {
+
+        int MAX_SIZE = 100;
+        String[][] data = new String[2][MAX_SIZE];
+        Scanner scan = new Scanner(System.in);
+        List digedit = new List("0", 0);
+
+        System.out.println("Please enter the format 'x-coordinate y-coordinate' and type 'exit' to quit.");
+
+        for (int i = 0; i < MAX_SIZE; i++) {
+            String temp = scan.nextLine();
+
+            if (temp.contentEquals("exit")) {
+                break;
+            }
+
+            while (!temp.contains(" ")) {
+
+                System.out.println("Please enter the format 'x-coordinate y-coordinate'");
+                temp = scan.nextLine();
+
+            }
+
+            String[] tempWord = temp.split("\\s+");
+            int datas = Integer.parseInt(tempWord[1]);
+            digedit.insertData(tempWord[0], datas);
+
+        }
+
+        digedit.printValue();
+
+    }
+}
