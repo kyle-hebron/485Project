@@ -1,0 +1,22 @@
+public class Links {
+    private String name = "0"; //x-coordinate
+    private int value = 0;  //y-coordinate
+    public Links nextLink;
+    
+    public Links(String name, int value){
+        this.name = name;
+        this.value = value;
+    }
+    
+    public int getValue(){
+        return value;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void printData() {
+        System.out.println("(" + name + ", " + value + ")");
+    }
+}
