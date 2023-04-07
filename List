@@ -1,0 +1,38 @@
+public class List {
+    Links root = null;
+    int max_value = 0;
+    
+    public List(String name, int value) {
+        Links tempLink = new Links(name, value);
+        
+        root = tempLink;
+    }
+    
+    public void insertData(String name, int value){
+        if(root == null){
+            Links temps = new Links(name, value);
+            root = temps;
+            max_value = value;
+            return;
+        }
+        if(value > max_value)
+            max_value = value;
+        
+        Links tempLink = new Links(name, value);
+        Links current = root;
+        while(current.nextLink != null) {
+            current = current.nextLink;
+        }
+        current.nextLink = tempLink;
+    }
+    
+    public void printValue(){
+        Links curr = root;
+        while(curr != null) {
+            curr.printData();
+            curr = curr.nextLink;
+        }
+        System.out.println("The highest value is " + max_value);
+    }
+    
+}
